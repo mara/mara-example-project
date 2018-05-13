@@ -6,7 +6,8 @@
 -e git+https://github.com/mara/data-integration.git@1.0.0#egg=data-integration
 -e git+https://github.com/mara/bigquery-downloader.git@1.0.0#egg=bigquery-downloader
 -e git+https://github.com/mara/etl-tools.git@1.0.0#egg=etl-tools
--e git+https://github.com/mara/mara-config.git@0.1#egg=mara-config
+-e git+https://github.com/jankatins/mara-config.git@master#egg=mara-config
+-e git+https://github.com/jankatins/mara-cli.git@master#egg=mara-cli
 
 # running flask
 gunicorn
