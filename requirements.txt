@@ -10,6 +10,8 @@
 
 # running flask
 gunicorn
+# To get better app discovering
+flask>1.0
 
 # downloading data from s3
 awscli<1.14.0
