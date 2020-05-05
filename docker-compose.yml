@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+
+  mara-app:
+    container_name: ${MARA_PROJECT_NAME:-mara-example}-app
+    image: mara-app:dev
+    user: 1000:1000
+    # "command" parameter below overwrites the default container's command for keeping the container alive for dev mode
+    command: tail -f /dev/null
+    build:
+      context: .
+      dockerfile: .scripts/docker/mara-app/Dockerfile
+    environment:
+      POSTGRES_HOST: mara-postgres
+      FLASK_RUN_HOST: 0.0.0.0
+    ports:
+      - 5000:5000
+    volumes:
+      - ./:/mara
+    depends_on:
+      - mara-postgres
+    stdin_open: true
+    tty: true
+
+  mara-postgres:
+    container_name: ${MARA_PROJECT_NAME:-mara-example}-postgres
+    image: mara-postgres:dev
+    build: ./.scripts/docker/postgres/
+    restart: always
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - 5432:5432
+    volumes:
+      - "mara-postgres-data:/var/lib/postgresql/data"
+
+volumes:
+  mara-postgres-data:
+    driver: "local"

@@ -2,6 +2,7 @@
 
 import pathlib
 import sys
+from shutil import copy
 
 # configure application and packages
 import app.data_integration

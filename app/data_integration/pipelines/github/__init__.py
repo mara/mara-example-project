@@ -113,4 +113,4 @@ pipeline.add_final(
          description="Replaces the current gh_dim schema with the contents of gh_dim_next",
          commands=[
              ExecuteSQL(sql_statement="SELECT util.replace_schema('gh_dim', 'gh_dim_next');")
-         ]))
+]))

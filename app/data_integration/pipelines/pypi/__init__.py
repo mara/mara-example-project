@@ -132,4 +132,4 @@ pipeline.add_final(
          description="Replaces the current pypi_dim schema with the contents of pypi_dim_next",
          commands=[
              ExecuteSQL(sql_statement="SELECT util.replace_schema('pypi_dim', 'pypi_dim_next');")
-         ]))
+]))
